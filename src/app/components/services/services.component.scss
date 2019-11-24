@@ -1,0 +1,111 @@
+@import 'styles.scss';
+
+.services {
+   position: relative;
+   padding-bottom: $pd-section;
+   background-color: $bg-section;
+}
+.services__content {
+   background-color: $bg-white;
+   padding: 3rem 0;
+}
+
+.service {
+   @include wrapper;
+}
+
+.service__icon {
+   display: block;
+   border: 1px solid #000;
+   width: rem(50);
+   height: rem(50);
+}
+
+.service__text,
+.service__title {
+   margin-left: rem(50);
+}
+
+.service__title {
+   font-family: $montserrat;
+   font-size: rem(24);
+   font-weight: 400;
+   text-transform: uppercase;
+   color: $dark-blue;         
+   grid-column-start: 2;
+   grid-row-start: 2;
+
+}
+
+.service__text {
+   @include paragraph;
+   grid-column-start: 2;
+   grid-row-start: 3;
+
+}
+
+/* .fixed {
+   position: fixed;
+   top: 56px;
+}
+.bottom {
+   position: absolute;
+   bottom: -56px;
+} */
+
+@media screen and (min-width: 1022px) {
+
+   .services {
+      padding-bottom: 0;
+   }
+   .services__inner {
+      @include wrapper($width: 100%, $max-width: rem(960));
+      display: grid;
+      grid-template-columns: repeat(4, rem(240));
+      grid-template-rows: rem(240);
+      grid-template-areas: 
+         "title . . ."
+         ". content content content"
+         ". content content content";
+   }
+   .section-header {
+      grid-area: title;
+      width: rem(240);
+      height: rem(240);
+   }
+   
+   .services__content {
+      grid-area: content;
+      display: flex;
+      flex-wrap: wrap;
+   }
+   .service {
+      width: rem(290);
+      height: rem(245);
+   }
+   .service__text,
+   .service__title {
+      margin-left: 0;
+   }
+   .service__icon {
+      margin-bottom: 3rem;
+   }
+
+}
+
+@media screen and (min-width: 1272px) {
+
+   .services__inner {
+      @include wrapper($width: 100%, $max-width: rem(1170));
+      grid-template-columns: rem(370) repeat(2, rem(400));
+      grid-template-rows: rem(370);
+      grid-template-areas: 
+         "title . . ."
+         ". content content content";
+   }
+   .section-header {
+      width: rem(370);
+      height: rem(370);
+   }
+
+}

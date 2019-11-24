@@ -1,0 +1,173 @@
+@import 'styles.scss';
+
+.about {
+   padding-bottom: $pd-section;
+   background-color: $bg-section;
+   background-image: url("~src/assets/images/bg_03.jpg");
+   background-repeat: no-repeat;
+   background-position: center top;  
+}
+
+.about__text,
+.member__info {
+   padding: 3rem 0;
+   background-color: $bg-white;
+}
+.about__text {
+   font-family: $roboto;
+   line-height: rem(26);
+   p {
+      margin-bottom: 1.4rem;
+   }
+   strong {
+      color: $strongPink;
+   }
+   
+   em {
+      color: $lightGray;
+   }
+}
+
+.slider {
+   width: 100%;
+   max-height: 100%;
+   min-height: rem(160);
+}
+
+.member__info {
+   font-family: $roboto;
+   span {
+      display: block;
+      margin-bottom: 2rem;
+   }
+   h4 {
+      line-height: rem(26);
+      font-weight: 700;
+      color:$dark-blue;  
+   }
+   span {
+      color: $pink;
+      line-height: rem(16);
+      font-size: rem(14);
+      text-transform: uppercase;
+      letter-spacing: rem(4);
+   }
+}
+
+img {
+   display: block;
+   width: 100%;
+   height: auto;
+   max-width: 100%;
+}
+
+p {
+   @include paragraph;
+}
+.wrapper {
+   @include wrapper;
+}
+
+
+@media screen and (min-width: 652px) {
+  .member__content {
+     display: flex;
+  }
+  .member__info,
+  .member__img {
+     width: 50%;
+  }
+}
+
+@media screen and (min-width: 1022px) {
+
+   .about {
+      padding-bottom: 0;
+   }
+
+   .about__inner {
+      @include wrapper($width: 100%, $max-width: rem(960));
+      display: grid;
+      grid-template-columns: repeat(4, rem(240));
+      grid-template-rows: rem(240);
+      grid-template-areas: 
+         "title . . ."
+         ". content content content"
+         ". content content content";
+   }
+   .section-header {
+      grid-area: title;
+      width: rem(240);
+      height: rem(240);
+   }
+   
+   .about__content {
+      grid-area: content;
+
+   }
+   .about__text {
+      .wrapper {
+         display: flex;
+         justify-content: space-around;
+         p {
+            width: 43%;
+   
+         }
+         ul {
+            width: 43%;
+         }
+      }
+   }
+   .member__info {
+      .wrapper {
+         display: flex;
+         flex-direction: column;
+      }
+      span {
+         display: block;
+         margin-bottom: 2rem;
+      }
+      h4 {
+         line-height: rem(26);
+         font-weight: 700;
+         color:$dark-blue;  
+      }
+      span {
+         color: $pink;
+         line-height: rem(16);
+         font-size: rem(14);
+         text-transform: uppercase;
+         letter-spacing: rem(4);
+      }
+   }
+   
+
+
+}
+@media screen and (min-width: 1272px) {
+
+
+   .about__inner {
+      @include wrapper($width: 100%, $max-width: rem(1170));
+      display: grid;
+      grid-template-columns:  rem(370) repeat(2, rem(400));
+      grid-template-rows: rem(370);
+      grid-template-areas: 
+         "title . . "
+         ". content content"
+         ". content content";
+   }
+   .section-header {
+      width: rem(370);
+      height: rem(370);
+   }
+   .member__info {
+      width: rem(430);
+   }
+   .member__img {
+      width: rem(370);
+   }
+
+
+
+}

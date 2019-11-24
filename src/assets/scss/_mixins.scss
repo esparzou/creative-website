@@ -1,0 +1,26 @@
+/**********MIXINS**********/
+
+@mixin wrapper($width: 90%, $max-width: none) {
+	width: $width;
+	max-width: $max-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin paragraph {
+	font-family: $roboto;
+   font-weight: 400;
+   color: #23214C;
+   line-height: rem(26);	
+}
+@mixin emphasized {
+	font-family: $roboto;
+   color: #727190;
+   line-height: rem(26);
+}
+
+
+@function rem($size, $base:16){
+	$remSize: $size / $base;
+	@return #{$remSize}rem;
+}

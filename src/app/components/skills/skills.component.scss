@@ -1,0 +1,108 @@
+@import 'styles.scss';
+
+.skills {
+   width: 100%;
+   padding-bottom: 10rem;
+   background-color: rgb(34, 28, 90);
+   background-image: url("~src/assets/images/bg_00.jpg");
+   background-repeat: no-repeat;
+   background-position: left top;
+   background-size: 100%  
+}
+
+.skills__content {
+   background-color: white;
+}
+
+.skills__text {
+   @include paragraph;
+   @include wrapper;
+   padding: 3rem 0;
+}
+.skills__bars {
+   @include wrapper;
+   padding-bottom: 3rem;
+}
+.skill {
+   position: relative;
+   height: rem(60);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   overflow: hidden;
+   &:nth-child(1) {
+      width: 81%;
+      background-color: $green;
+   }
+   &:nth-child(2) {
+      width: 93%;
+      background-color: $orange;
+   }
+   &:nth-child(3) {
+      width: 72%;
+      background-color: $pink;
+   }
+   &:nth-child(4) {
+      width: 99%;
+      background-color: $blue;
+   }
+   &:hover span {
+      margin-left: 0;
+      margin-right: 0;
+      color: white;
+      opacity: 1;  
+   }
+   span {
+      font-family: $roboto;
+      text-transform: uppercase;
+      font-size: rem(45);
+      font-weight: 900;
+      opacity: .4;
+      margin-left: -1rem;
+      margin-right: -3rem;
+      transition: all .5s ease;
+   }
+}
+
+@media screen and (min-width: 1022px) {
+
+   .skills {
+      padding-bottom: 0;
+   }
+
+   .skills__inner {
+      @include wrapper($width: 100%, $max-width: rem(960));
+      display: grid;
+      grid-template-columns: repeat(4, rem(240));
+      grid-template-rows: rem(240);
+      grid-template-areas: 
+         " . . . title"
+         "content content content ."
+         "content content content .";
+   }
+   .section-header {
+      grid-area: title;
+      width: rem(240);
+      height: rem(240);
+   }
+   
+   .skills__content {
+      grid-area: content;
+   }
+}
+@media screen and (min-width: 1272px) {
+
+   .skills__inner {
+      @include wrapper($width: 100%, $max-width: rem(1170));
+      grid-template-columns: repeat(2, rem(400)) rem(370);
+      grid-template-rows: rem(370);
+      grid-template-areas: 
+         " . . title"
+         "content content .";
+   }
+   .section-header {
+      width: rem(370);
+      height: rem(370);
+   }
+
+}

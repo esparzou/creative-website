@@ -1,0 +1,10 @@
+@import 'styles.scss';
+
+.footer {
+   color: $textFooter;
+   font-family: $roboto;
+   background-color: $bgSections;
+   padding: rem(100) 0;
+   text-align: center;
+   line-height: rem(36);
+}

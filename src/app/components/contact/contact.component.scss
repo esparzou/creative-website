@@ -1,0 +1,111 @@
+@import 'styles.scss';
+
+.contact {
+   width: 100%;
+   padding-bottom: 10rem;
+   background-color: rgb(34, 28, 90);
+   background-image: url("~src/assets/images/bg_05.jpg");
+   background-repeat: no-repeat;
+   background-position: center top; 
+}
+
+.contact__content {
+   background-color: $bg-white;
+   padding-bottom: 3rem;
+}
+
+.contact__text {
+   @include paragraph;
+   @include wrapper;
+   padding: 3rem 0;
+
+   strong {
+      display: inline-block;
+      margin-top: 1rem;
+      color: $darkPink;
+   }
+}
+form {
+   @include wrapper;
+   font-weight: 400;
+   font-family: 'Roboto', sans-serif;
+   & > * {
+      width: 100%;
+   }
+   & > *:not([type='submit']) {
+      padding-bottom: rem(5);
+      margin-bottom: rem(25);
+      border: 0;
+      border-bottom: 1px solid #1c1c1c;
+      color: $dark-blue;
+   }
+   *::placeholder {
+      color: $dark-blue;
+      opacity: 1;
+   }
+   input[type=submit] {
+      background-color: $bg-white;
+      border: 2px solid $contactPink;
+      padding: rem(12) 0;
+      color: $contactPink;
+   }
+
+}
+
+@media screen and (min-width: 1022px) {
+
+   .contact {
+      padding-bottom: 0;
+   }
+
+   .contact__inner {
+      @include wrapper($width: 100%, $max-width: rem(960));
+      display: grid;
+      grid-template-columns: repeat(4, rem(240));
+      grid-template-rows: rem(240);
+      grid-template-areas: 
+         "title . . ."
+         ". content content content"
+         ". content content content"
+         ". maps maps maps";
+   }
+   .section-header {
+      grid-area: title;
+      width: rem(240);
+      height: rem(240);
+   }
+   
+   .contact__content {
+      grid-area: content;
+      .wrapper {
+         display: flex;
+         align-items: center;
+         justify-content: space-around;
+         & > * {
+            width: 40%;
+         }
+      }
+   }
+   .maps__content {
+      grid-area: maps;
+   }
+
+}
+@media screen and (min-width: 1272px) {
+
+   .contact__inner {
+      @include wrapper($width: 100%, $max-width: rem(1170));
+      grid-template-columns:  rem(370) repeat(2, rem(400));
+      grid-template-rows: rem(370);
+      grid-template-areas: 
+         "title . ."
+         ". content content"
+         ". content content"
+         ". maps maps";
+   }
+   .section-header {
+      width: rem(370);
+      height: rem(370);
+   }
+
+}

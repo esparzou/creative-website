@@ -1,0 +1,87 @@
+@import 'styles.scss';
+
+.video {
+   width: 100%;
+   height: 76rem;
+   background-color: rgb(34, 28, 90);
+   background-image: url("~src/assets/images/bg_06.jpg");
+   background-repeat: repeat-x;
+   background-position: center center;  
+}
+
+.video__text {
+   @include wrapper;
+   padding: 3rem 0;   
+}
+.video__content {
+   font-family: $roboto;
+   line-height: rem(26);
+   background-color: white;
+   p {
+      margin-bottom: 1.4rem;
+   }
+   strong {
+      color: $orange;
+   }
+   
+   em {
+      color: $lightGray;
+   }
+}
+p {
+   @include paragraph;
+}
+
+img {
+   display: block;
+   width: 100%;
+   height: auto;
+   max-width: 100%;
+}
+
+@media screen and (min-width: 1022px) {
+
+   .video {
+      padding-bottom: 0;
+   }
+
+   .video__inner {
+      @include wrapper($width: 100%, $max-width: rem(960));
+      display: grid;
+      grid-template-columns: repeat(4, rem(240));
+      grid-template-rows: rem(240);
+      grid-template-areas: 
+         "title . . ."
+         ". content content content"
+         ". content content content";
+   }
+   .section-header {
+      grid-area: title;
+      width: rem(240);
+      height: rem(240);
+   }
+   
+   .video__content {
+      grid-area: content;
+      background-color: $bg-white;
+   }
+
+}
+@media screen and (min-width: 1272px) {
+
+   .video__inner {
+      @include wrapper($width: 100%, $max-width: rem(1170));
+      display: grid;
+      grid-template-columns: rem(370) repeat(2, rem(400));
+      grid-template-rows: rem(370);
+      grid-template-areas: 
+         "title . ."
+         ". content content"
+         ". content content";
+   }
+   .section-header {
+      width: rem(370);
+      height: rem(370);
+   }
+
+}
